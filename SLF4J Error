@@ -1,0 +1,38 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/hive/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Exception in thread "main" java.lang.RuntimeException: com.ctc.wstx.exc.WstxParsingException: Illegal character entity: expansion character (code 0x8
+ at [row,col,system-id]: [3215,96,"file:/usr/local/hive/conf/hive-site.xml"]
+	at org.apache.hadoop.conf.Configuration.loadResource(Configuration.java:3123)
+	at org.apache.hadoop.conf.Configuration.loadResources(Configuration.java:3072)
+	at org.apache.hadoop.conf.Configuration.loadProps(Configuration.java:2945)
+	at org.apache.hadoop.conf.Configuration.addResourceObject(Configuration.java:1035)
+	at org.apache.hadoop.conf.Configuration.addResource(Configuration.java:940)
+	at org.apache.hadoop.hive.conf.HiveConf.initialize(HiveConf.java:5154)
+	at org.apache.hadoop.hive.conf.HiveConf.<init>(HiveConf.java:5102)
+	at org.apache.hadoop.hive.common.LogUtils.initHiveLog4jCommon(LogUtils.java:97)
+	at org.apache.hadoop.hive.common.LogUtils.initHiveLog4j(LogUtils.java:81)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:699)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:330)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:245)
+Caused by: com.ctc.wstx.exc.WstxParsingException: Illegal character entity: expansion character (code 0x8
+ at [row,col,system-id]: [3215,96,"file:/usr/local/hive/conf/hive-site.xml"]
+	at com.ctc.wstx.sr.StreamScanner.constructWfcException(StreamScanner.java:634)
+	at com.ctc.wstx.sr.StreamScanner.throwParseError(StreamScanner.java:504)
+	at com.ctc.wstx.sr.StreamScanner.reportIllegalChar(StreamScanner.java:2469)
+	at com.ctc.wstx.sr.StreamScanner.validateChar(StreamScanner.java:2416)
+	at com.ctc.wstx.sr.StreamScanner.resolveCharEnt(StreamScanner.java:2382)
+	at com.ctc.wstx.sr.StreamScanner.fullyResolveEntity(StreamScanner.java:1528)
+	at com.ctc.wstx.sr.BasicStreamReader.nextFromTree(BasicStreamReader.java:2818)
+	at com.ctc.wstx.sr.BasicStreamReader.next(BasicStreamReader.java:1121)
+	at org.apache.hadoop.conf.Configuration$Parser.parseNext(Configuration.java:3427)
+	at org.apache.hadoop.conf.Configuration$Parser.parse(Configuration.java:3213)
+	at org.apache.hadoop.conf.Configuration.loadResource(Configuration.java:3106)
+after running every hive i get the code above
