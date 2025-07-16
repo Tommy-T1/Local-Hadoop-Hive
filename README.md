@@ -10,5 +10,5 @@ Proof-of-concept for a To run Haddop and Hive on a local machine.
 ## Evidence  
 ScreenShots Folder
 
-##Problems
+## Problems
 Conflict in java installation caused the program to not execute commands.
